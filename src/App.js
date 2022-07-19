@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PageLayout from "./layouts/PageLayout";
+import LoginPage from "./pages/LoginPage";
+import Registration from "./pages/Registration";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <PageLayout>
+              <LoginPage style={styles.loginPage} />
+            </PageLayout>
+          }
+        />
+        <Route
+          path="/registration"
+          element={
+            <PageLayout>
+              <Registration />
+            </PageLayout>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+const styles = {
+  loginPage: {
+    overflow: "hidden",
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+  },
+};
