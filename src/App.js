@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PageLayout from "./layouts/PageLayout";
+import Dashboard from "./pages/Dashboard";
 import LoginPage from "./pages/LoginPage";
 import Registration from "./pages/Registration";
 
@@ -20,6 +21,14 @@ function App() {
           element={
             <PageLayout>
               <Registration />
+            </PageLayout>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <PageLayout>
+              <Dashboard />
             </PageLayout>
           }
         />
